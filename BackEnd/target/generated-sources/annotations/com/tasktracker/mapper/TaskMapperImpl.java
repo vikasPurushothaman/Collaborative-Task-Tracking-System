@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-02T15:50:20+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.19 (Ubuntu)"
+    date = "2026-08-02T21:25:22+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class TaskMapperImpl implements TaskMapper {
@@ -38,18 +38,18 @@ public class TaskMapperImpl implements TaskMapper {
 
         TaskDTO.TaskDTOBuilder taskDTO = TaskDTO.builder();
 
-        taskDTO.id( task.getId() );
-        taskDTO.title( task.getTitle() );
-        taskDTO.description( task.getDescription() );
-        taskDTO.priority( task.getPriority() );
-        taskDTO.status( task.getStatus() );
-        taskDTO.dueDate( task.getDueDate() );
         taskDTO.assignedUser( userMapper.toDto( task.getAssignedUser() ) );
-        taskDTO.createdBy( userMapper.toDto( task.getCreatedBy() ) );
-        taskDTO.project( projectMapper.toDto( task.getProject() ) );
         taskDTO.attachments( attachmentListToAttachmentDTOList( task.getAttachments() ) );
         taskDTO.comments( commentListToCommentDTOList( task.getComments() ) );
         taskDTO.createdAt( task.getCreatedAt() );
+        taskDTO.createdBy( userMapper.toDto( task.getCreatedBy() ) );
+        taskDTO.description( task.getDescription() );
+        taskDTO.dueDate( task.getDueDate() );
+        taskDTO.id( task.getId() );
+        taskDTO.priority( task.getPriority() );
+        taskDTO.project( projectMapper.toDto( task.getProject() ) );
+        taskDTO.status( task.getStatus() );
+        taskDTO.title( task.getTitle() );
         taskDTO.updatedAt( task.getUpdatedAt() );
 
         return taskDTO.build();
@@ -63,10 +63,10 @@ public class TaskMapperImpl implements TaskMapper {
 
         Task.TaskBuilder task = Task.builder();
 
-        task.title( request.getTitle() );
         task.description( request.getDescription() );
-        task.priority( request.getPriority() );
         task.dueDate( request.getDueDate() );
+        task.priority( request.getPriority() );
+        task.title( request.getTitle() );
 
         return task.build();
     }

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-02T15:50:20+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.19 (Ubuntu)"
+    date = "2026-08-02T21:25:22+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class AttachmentMapperImpl implements AttachmentMapper {
@@ -23,11 +23,11 @@ public class AttachmentMapperImpl implements AttachmentMapper {
         AttachmentDTO.AttachmentDTOBuilder attachmentDTO = AttachmentDTO.builder();
 
         attachmentDTO.taskId( attachmentTaskId( attachment ) );
-        attachmentDTO.id( attachment.getId() );
         attachmentDTO.fileName( attachment.getFileName() );
         attachmentDTO.filePath( attachment.getFilePath() );
-        attachmentDTO.fileType( attachment.getFileType() );
         attachmentDTO.fileSize( attachment.getFileSize() );
+        attachmentDTO.fileType( attachment.getFileType() );
+        attachmentDTO.id( attachment.getId() );
         attachmentDTO.uploadedDate( attachment.getUploadedDate() );
 
         return attachmentDTO.build();

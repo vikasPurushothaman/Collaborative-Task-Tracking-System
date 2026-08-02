@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-02T15:50:20+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.19 (Ubuntu)"
+    date = "2026-08-02T21:25:22+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class TeamMapperImpl implements TeamMapper {
@@ -30,12 +30,12 @@ public class TeamMapperImpl implements TeamMapper {
 
         TeamDTO.TeamDTOBuilder teamDTO = TeamDTO.builder();
 
-        teamDTO.id( team.getId() );
-        teamDTO.teamName( team.getTeamName() );
-        teamDTO.description( team.getDescription() );
-        teamDTO.owner( userMapper.toDto( team.getOwner() ) );
-        teamDTO.members( userSetToUserDTOSet( team.getMembers() ) );
         teamDTO.createdAt( team.getCreatedAt() );
+        teamDTO.description( team.getDescription() );
+        teamDTO.id( team.getId() );
+        teamDTO.members( userSetToUserDTOSet( team.getMembers() ) );
+        teamDTO.owner( userMapper.toDto( team.getOwner() ) );
+        teamDTO.teamName( team.getTeamName() );
         teamDTO.updatedAt( team.getUpdatedAt() );
 
         return teamDTO.build();
@@ -49,8 +49,8 @@ public class TeamMapperImpl implements TeamMapper {
 
         Team.TeamBuilder team = Team.builder();
 
-        team.teamName( request.getTeamName() );
         team.description( request.getDescription() );
+        team.teamName( request.getTeamName() );
 
         return team.build();
     }

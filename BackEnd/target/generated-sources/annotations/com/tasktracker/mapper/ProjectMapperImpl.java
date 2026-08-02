@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-02T15:50:20+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.19 (Ubuntu)"
+    date = "2026-08-02T21:25:22+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class ProjectMapperImpl implements ProjectMapper {
@@ -30,13 +30,13 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         ProjectDTO.ProjectDTOBuilder projectDTO = ProjectDTO.builder();
 
-        projectDTO.id( project.getId() );
-        projectDTO.name( project.getName() );
-        projectDTO.description( project.getDescription() );
-        projectDTO.createdBy( userMapper.toDto( project.getCreatedBy() ) );
-        projectDTO.projectManager( userMapper.toDto( project.getProjectManager() ) );
-        projectDTO.members( userSetToUserDTOSet( project.getMembers() ) );
         projectDTO.createdAt( project.getCreatedAt() );
+        projectDTO.createdBy( userMapper.toDto( project.getCreatedBy() ) );
+        projectDTO.description( project.getDescription() );
+        projectDTO.id( project.getId() );
+        projectDTO.members( userSetToUserDTOSet( project.getMembers() ) );
+        projectDTO.name( project.getName() );
+        projectDTO.projectManager( userMapper.toDto( project.getProjectManager() ) );
         projectDTO.updatedAt( project.getUpdatedAt() );
 
         return projectDTO.build();
@@ -50,8 +50,8 @@ public class ProjectMapperImpl implements ProjectMapper {
 
         Project.ProjectBuilder project = Project.builder();
 
-        project.name( request.getName() );
         project.description( request.getDescription() );
+        project.name( request.getName() );
 
         return project.build();
     }

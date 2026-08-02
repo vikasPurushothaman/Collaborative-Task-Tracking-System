@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-08-02T15:50:20+0530",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.19 (Ubuntu)"
+    date = "2026-08-02T21:25:22+0530",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
@@ -24,15 +24,15 @@ public class UserMapperImpl implements UserMapper {
 
         UserDTO.UserDTOBuilder userDTO = UserDTO.builder();
 
-        userDTO.id( user.getId() );
-        userDTO.firstName( user.getFirstName() );
-        userDTO.lastName( user.getLastName() );
+        userDTO.createdAt( user.getCreatedAt() );
         userDTO.email( user.getEmail() );
+        userDTO.firstName( user.getFirstName() );
+        userDTO.id( user.getId() );
+        userDTO.lastName( user.getLastName() );
         userDTO.phone( user.getPhone() );
         userDTO.profileImage( user.getProfileImage() );
         userDTO.role( user.getRole() );
         userDTO.status( user.getStatus() );
-        userDTO.createdAt( user.getCreatedAt() );
         userDTO.updatedAt( user.getUpdatedAt() );
 
         return userDTO.build();
@@ -46,9 +46,9 @@ public class UserMapperImpl implements UserMapper {
 
         User.UserBuilder user = User.builder();
 
+        user.email( request.getEmail() );
         user.firstName( request.getFirstName() );
         user.lastName( request.getLastName() );
-        user.email( request.getEmail() );
         user.phone( request.getPhone() );
         user.role( request.getRole() );
 
@@ -63,9 +63,9 @@ public class UserMapperImpl implements UserMapper {
 
         User.UserBuilder user = User.builder();
 
+        user.email( request.getEmail() );
         user.firstName( request.getFirstName() );
         user.lastName( request.getLastName() );
-        user.email( request.getEmail() );
         user.phone( request.getPhone() );
         user.role( request.getRole() );
 
