@@ -13,4 +13,8 @@ public class AiTaskSummaryRequest {
 
     private Long taskId;
     private String text;
+
+
+
+
 }
