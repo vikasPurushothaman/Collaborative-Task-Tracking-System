@@ -12,4 +12,7 @@ import lombok.NoArgsConstructor;
 public class AiGenerateDescriptionResponse {
 
     private String generatedDescription;
+
+
+
 }
